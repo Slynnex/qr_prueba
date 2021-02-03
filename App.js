@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {Button} from 'react-native-elements';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Lalo se la come</Text>
+      <Button title="Si"/>
       <StatusBar style="auto" />
     </View>
   );
