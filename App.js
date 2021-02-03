@@ -6,7 +6,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import SigninScreen from './src/screens/Signin_screen';
-
+import SignupScreen from './src/screens/Signup_screen';
 import MainScreen from './src/screens/main_screen';
 import ListScreen from './src/screens/List_screen';
 import CalculatorScreen from './src/screens/calculator_screen';
@@ -14,7 +14,12 @@ import CalculatorScreen from './src/screens/calculator_screen';
 const switchNavigator = createSwitchNavigator({
     loginFlow: createStackNavigator({
       Signin: SigninScreen,
-
+      Signup: SignupScreen
+    }),
+    mainFlow: createBottomTabNavigator({
+      Main: MainScreen,
+      List: ListScreen,
+      Calculator: CalculatorScreen
     })
 
 });

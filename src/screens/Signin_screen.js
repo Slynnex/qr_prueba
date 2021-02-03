@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, Button} from 'react-native';
 
-const Signin_screen = () => {
+const Signin_screen = ({ navigation }) => {
     return (
         <View>
             <Text>Signin screen</Text>
