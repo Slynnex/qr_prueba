@@ -14,7 +14,7 @@ export default class Qr extends React.Component {
     };
 
     autenticar=(codigo)=>{
-      fetch(`http://192.168.100.71:4000/api/qr?Codigo=${codigo}`,
+      fetch(`https://rocky-woodland-57876.herokuapp.com/api/qr?Codigo=${codigo}`,
               {
                   method: 'GET',
                   
@@ -22,8 +22,8 @@ export default class Qr extends React.Component {
               }).then((response) => response.json()).then((responseJson) =>
               {
                   if(!responseJson.msg){
-                      this.props.navigation.navigate('Producto',{Codigo: responseJson.Codigo, Descripcion:responseJson.Descripcion, Cantidad:responseJson.Cantidad})
-                      //Alert.alert(codigo,responseJson.Codigo +"\n"+ responseJson.Descripcion);
+                      //this.props.navigation.navigate('Producto',{Codigo: responseJson.Codigo, Descripcion:responseJson.Descripcion, Cantidad:responseJson.Cantidad})
+                      Alert.alert(codigo,responseJson.Descripcion +"\n"+ responseJson.Cantidad);
                   }else{
                       Alert.alert(codigo,responseJson.msg);
                   }
@@ -86,8 +86,7 @@ export default class Qr extends React.Component {
       data
     }) => {
       this.setState({scanned: true});
-      Alert.alert(type,data);
-      //this.autenticar(data);
+      this.autenticar(data);
     };
     
   }

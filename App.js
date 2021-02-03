@@ -16,7 +16,12 @@ const switchNavigator = createSwitchNavigator({
     loginFlow: createStackNavigator({
       Signin: SigninScreen,
       Signup: SignupScreen,
-      Qr: QrScreen
+      Qr:{
+        screen:QrScreen,
+        navigationOptions:{
+          headerShown:false
+        }
+      }
     }),
     mainFlow: createBottomTabNavigator({
       Main: MainScreen,
