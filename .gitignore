@@ -1,4 +1,4 @@
-node_modules/**/*
+
 .expo/*
 npm-debug.*
 *.jks
@@ -7,9 +7,9 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-package.json
-package-lock.json
+
 web-build/
 
 # macOS
 .DS_Store
+node_modules
