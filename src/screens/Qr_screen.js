@@ -14,7 +14,7 @@ export default class Qr extends React.Component {
     };
 
     autenticar=(codigo)=>{
-      fetch(`https://rocky-woodland-57876.herokuapp.com/api/qr?Codigo=${codigo}`,
+      fetch(`http://192.168.100.71:4000/api/qr?Codigo=${codigo}`,
               {
                   method: 'GET',
                   
@@ -22,8 +22,8 @@ export default class Qr extends React.Component {
               }).then((response) => response.json()).then((responseJson) =>
               {
                   if(!responseJson.msg){
-                      //this.props.navigation.navigate('Producto',{Codigo: responseJson.Codigo, Descripcion:responseJson.Descripcion, Cantidad:responseJson.Cantidad})
-                      Alert.alert(codigo,responseJson.Descripcion +"\n"+ responseJson.Cantidad);
+                      this.props.navigation.navigate('Producto',{Codigo: responseJson.Codigo, Descripcion:responseJson.Descripcion, Cantidad:responseJson.Cantidad})
+                      //Alert.alert(codigo,responseJson.Codigo +"\n"+ responseJson.Descripcion);
                   }else{
                       Alert.alert(codigo,responseJson.msg);
                   }
@@ -64,7 +64,7 @@ export default class Qr extends React.Component {
       }
       return ( 
        
-        <> 
+        <View style={{flex:1, backgroundColor:'black'}}> 
         <BarCodeScanner onBarCodeScanned = {scanned ? undefined : this.handleBarCodeScanned}
         style = {[StyleSheet.absoluteFill,styles.container]}>
         
@@ -77,7 +77,7 @@ export default class Qr extends React.Component {
             onPress = {() => this.setState({scanned: false})}/>)
         }
         </BarCodeScanner>
-        </>
+        </View>
       );
     }
   
@@ -86,7 +86,8 @@ export default class Qr extends React.Component {
       data
     }) => {
       this.setState({scanned: true});
-      this.autenticar(data);
+      Alert.alert(type,data);
+      //this.autenticar(data);
     };
     
   }
