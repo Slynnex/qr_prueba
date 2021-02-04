@@ -64,7 +64,7 @@ export default class Qr extends React.Component {
       }
       return ( 
        
-        <View style={{flex:1, backgroundColor:'black'}}> 
+        <> 
         <BarCodeScanner onBarCodeScanned = {scanned ? undefined : this.handleBarCodeScanned}
         style = {[StyleSheet.absoluteFill,styles.container]}>
         
@@ -77,7 +77,7 @@ export default class Qr extends React.Component {
             onPress = {() => this.setState({scanned: false})}/>)
         }
         </BarCodeScanner>
-        </View>
+        </>
       );
     }
   
