@@ -7,7 +7,7 @@ const MainForm = () => {
     return (
         <View style={styles.container}>
             
-                <Text style={styles.titulo}>N conteo</Text>
+                <Text style={styles.titulo}>N c</Text>
                 
                 <View>
                     <Text style={styles.titulo}>Nombre</Text>
