@@ -3,16 +3,25 @@ import {View ,StyleSheet} from 'react-native';
 import {Text, Button, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 
-const mainForm = () => {
+const MainForm = () => {
     return (
-        <>
+        <View>
             <Spacer>
-                <Text h3>hola mundo</Text>
+                <Text>hola mundo</Text>
+                
             </Spacer>
-        </>
-    )
+        </View>
+    );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
 
-export default mainForm;
+    container: {
+        flex: 1,
+        alignItems: 'center',
+
+        },
+
+});
+
+export default MainForm;
