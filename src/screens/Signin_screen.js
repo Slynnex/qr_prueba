@@ -17,6 +17,7 @@ const Signin_screen = ({ navigation }) => {
                 text="No tienes cuenta? Registrese"
                 routeName="Signup"
             />
+            <Button title="Signup" onPress={() => navigation.navigate("Main")}/>
             <Button title="QrS" onPress={() => navigation.navigate("Qr")}/>
         </View>
     );
