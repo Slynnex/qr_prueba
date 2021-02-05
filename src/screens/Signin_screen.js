@@ -10,7 +10,7 @@ const Signin_screen = ({ navigation }) => {
                 headerText="Iniciar sesión"
                 errorMessage="Datos incorrectos"
             />
-            <Button title="Signup" onPress={() => navigation.navigate("Qr")}/>
+            <Button title="Signup" onPress={() => navigation.navigate("Main")}/>
             <Button title="QrS" onPress={() => navigation.navigate("Qr")}/>
         </View>
     );
