@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Text, Button} from 'react-native';
 import AuthForm from '../components/AuthForm';
 import {NavigationEvents} from 'react-navigation';
+import NavLink from '../components/NavLink';
 
 const Signin_screen = ({ navigation }) => {
     return (
@@ -9,8 +10,13 @@ const Signin_screen = ({ navigation }) => {
             <AuthForm 
                 headerText="Iniciar sesión"
                 errorMessage="Datos incorrectos"
+                regbool = {false}
+                subtmitButtonText="Iniciar sesion"
             />
-            <Button title="Signup" onPress={() => navigation.navigate("Qr")}/>
+            <NavLink
+                text="No tienes cuenta? Registrese"
+                routeName="Signup"
+            />
             <Button title="QrS" onPress={() => navigation.navigate("Qr")}/>
         </View>
     );
