@@ -6,7 +6,7 @@ import Spacer from './Spacer';
 const MainForm = () => {
     return (
         <View style={styles.container}>
-            <Spacer>
+            
                 <Text style={styles.titulo}>N conteo</Text>
                 
                 <View>
@@ -21,7 +21,7 @@ const MainForm = () => {
 
                 <Text style={styles.titulo}>codigo</Text>
                 <Button title= "QR"/>
-            </Spacer>
+           
         </View>
     );
 }
