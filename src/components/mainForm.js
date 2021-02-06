@@ -5,8 +5,8 @@ import Spacer from './Spacer';
 
 const MainForm = () => {
     return (
-        <>
-        <SafeAreaView >
+        
+        <SafeAreaView style={styles.container}>
          <ScrollView >
 
          
@@ -22,18 +22,21 @@ const MainForm = () => {
                     source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
                     style={ styles.imagen }
                 />
-
-                <Text style={styles.letras}>codigo :</Text>
-                <Input></Input>
                 <Button style={styles.boton} title= "QR"/>
-                <Text style={styles.letras}>ubicación</Text>
+                <Text style={styles.letras}>Codigo :</Text>
+                <Input></Input>
+                <Text style={styles.letras}>Ubicación</Text>
+                <Input></Input>
+                <Text style={styles.letras}>Cantidad</Text>
                 <Input></Input>
                 <Button style={styles.boton} title= "Enviar"/>
+                
+                
                </View>
                
         </ScrollView>    
         </SafeAreaView>
-        </>
+       
     );
 }
 
@@ -52,8 +55,8 @@ const styles = StyleSheet.create({
         },
     imagen:{
         
-        width: 200, 
-        height: 200,
+        width: 150, 
+        height: 150,
         marginBottom:30,
         
     },
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
     letras:{
         
         textAlign:'center',
-        fontSize:20
+        fontSize:18
     },
 
 });
