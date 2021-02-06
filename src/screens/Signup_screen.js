@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import AuthForm from '../components/AuthForm';
-import {NavigationEvents} from 'react-navigation';
 import NavLink from '../components/NavLink';
+import { Context as AuthContext } from '../context/AuthContext';
 
 const Signup_screen = () => {
+    const {state, signup} = useContext(AuthContext);
+
     return (
         <View style={styles.container}>
             <AuthForm 
                 headerText="Registrar"
-                errorMessage="Datos incorrectos"
+                errorMessage={state.errorMessage}
                 regbool = {true}
                 subtmitButtonText="Registrar"
+                onSubmit= {signup}
             />
             <NavLink
                 text="Tienes cuenta? Inicia sesión"
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         justifyContent: 'center',
-        marginBottom: 200
+        marginBottom: 100
     }
 });
 
