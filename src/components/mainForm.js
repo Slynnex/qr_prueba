@@ -2,8 +2,9 @@ import React from 'react';
 import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView } from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
+import { withNavigation } from 'react-navigation';
 
-const MainForm = (props) => {
+const MainForm = ({navigation}, props) => {
     return (
         
         <SafeAreaView style={styles.container}>
@@ -11,7 +12,7 @@ const MainForm = (props) => {
 
          
             
-                <Text style={styles.titulo}>{props.Codigo}</Text>
+                <Text style={styles.titulo}>No Registro</Text>
                 
                 <View style={styles.datos}>
                     <Text style={styles.letras}>Nombre</Text>
@@ -22,8 +23,8 @@ const MainForm = (props) => {
                     source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
                     style={ styles.imagen }
                 />
-                <Button style={styles.boton} title= "QR"/>
-                <Text style={styles.letras}>Codigo :</Text>
+                <Button title="Qr" onPress={() => navigation.navigate('Qr')}/>
+                <Text style={styles.letras}>Codigo :{props.Codigo}</Text>
                 <Input></Input>
                 <Text style={styles.letras}>Ubicación</Text>
                 <Input></Input>
@@ -88,4 +89,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default MainForm;
+export default withNavigation(MainForm);
