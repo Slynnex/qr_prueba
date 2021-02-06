@@ -2,8 +2,9 @@ import React from 'react';
 import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView } from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
+import { withNavigation } from 'react-navigation';
 
-const MainForm = () => {
+const MainForm = ({navigation}) => {
     return (
         
         <SafeAreaView style={styles.container}>
@@ -22,7 +23,7 @@ const MainForm = () => {
                     source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
                     style={ styles.imagen }
                 />
-                <Button style={styles.boton} title= "QR"/>
+                <Button title="Qr" onPress={() => navigation.navigate('Qr')}/>
                 <Text style={styles.letras}>Codigo :</Text>
                 <Input></Input>
                 <Text style={styles.letras}>Ubicación</Text>
@@ -88,4 +89,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default MainForm;
+export default withNavigation(MainForm);
