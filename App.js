@@ -12,6 +12,7 @@ import ListScreen from './src/screens/List_screen';
 import CalculatorScreen from './src/screens/calculator_screen';
 import QrScreen from './src/screens/Qr_screen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
+import { setNavigator } from './src/screens/navigationRef';
 
 const switchNavigator = createSwitchNavigator({
     loginFlow: createStackNavigator({
@@ -37,7 +38,11 @@ const App = createAppContainer(switchNavigator);
 export default () => {
   return (
       <AuthProvider>
-          <App/>
+          <App
+            ref={(navigator) => {
+              setNavigator(navigator);
+            }}
+          />
       </AuthProvider>
   );
 };
