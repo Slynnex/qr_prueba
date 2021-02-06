@@ -8,9 +8,8 @@ const MainForm = () => {
         <View style={styles.container}>
             
                 <Text style={styles.titulo}>N dfgdfgdf</Text>
-                
                 <View>
-                    <Text style={styles.titulo}>Nombre</Text>
+                     <Text style={styles.titulo}>Nombre</Text>
                     <Text style={styles.titulo}>Fecha</Text>
                 </View>
                
