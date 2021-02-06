@@ -1,12 +1,15 @@
 import React from 'react';
-import {View ,StyleSheet, Image, Button} from 'react-native';
+import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView } from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 
 const MainForm = () => {
     return (
         <>
-        <View style={styles.container}>
+        <SafeAreaView >
+         <ScrollView >
+
+         
             
                 <Text style={styles.titulo}>no articulo</Text>
                 
@@ -28,8 +31,8 @@ const MainForm = () => {
                 <Button style={styles.boton} title= "Enviar"/>
                </View>
                
-           
-        </View>
+        </ScrollView>    
+        </SafeAreaView>
         </>
     );
 }
