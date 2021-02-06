@@ -4,7 +4,7 @@ import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
 
-const MainForm = ({navigation}) => {
+const MainForm = ({navigation}, props) => {
     return (
         
         <SafeAreaView style={styles.container}>
@@ -12,7 +12,7 @@ const MainForm = ({navigation}) => {
 
          
             
-                <Text style={styles.titulo}>{props.Codigo}</Text>
+                <Text style={styles.titulo}>No Registro</Text>
                 
                 <View style={styles.datos}>
                     <Text style={styles.letras}>Nombre</Text>
@@ -24,7 +24,7 @@ const MainForm = ({navigation}) => {
                     style={ styles.imagen }
                 />
                 <Button title="Qr" onPress={() => navigation.navigate('Qr')}/>
-                <Text style={styles.letras}>Codigo :</Text>
+                <Text style={styles.letras}>Codigo :{props.Codigo}</Text>
                 <Input></Input>
                 <Text style={styles.letras}>Ubicación</Text>
                 <Input></Input>
