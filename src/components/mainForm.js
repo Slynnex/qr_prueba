@@ -12,7 +12,7 @@ const MainForm = ({navigation}) => {
 
          
             
-                <Text style={styles.titulo}>no articulo</Text>
+                <Text style={styles.titulo}>{props.Codigo}</Text>
                 
                 <View style={styles.datos}>
                     <Text style={styles.letras}>Nombre</Text>
