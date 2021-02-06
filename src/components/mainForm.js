@@ -20,7 +20,7 @@ const MainForm = () => {
                     style={ styles.imagen }
                 />
 
-                <Text style={styles.letras}>codigo:</Text>
+                <Text style={styles.letras}>codigo :</Text>
                 <Input></Input>
                 <Button style={styles.boton} title= "QR"/>
                 <Text style={styles.letras}>ubicación</Text>
