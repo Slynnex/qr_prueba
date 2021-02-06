@@ -3,7 +3,7 @@ import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView } from 'react-
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 
-const MainForm = () => {
+const MainForm = (props) => {
     return (
         
         <SafeAreaView style={styles.container}>
@@ -11,7 +11,7 @@ const MainForm = () => {
 
          
             
-                <Text style={styles.titulo}>no articulo</Text>
+                <Text style={styles.titulo}>{props.Codigo}</Text>
                 
                 <View style={styles.datos}>
                     <Text style={styles.letras}>Nombre</Text>
