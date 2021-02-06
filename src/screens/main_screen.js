@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import MainForm from '../components/MainForm';
+import MainForm from '../components/mainForm';
 
 const Main_screen = () => {
     return (
