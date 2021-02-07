@@ -1,8 +1,9 @@
 import React from 'react';
-import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView } from 'react-native';
+import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions } from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
+const {width} = Dimensions.get('window');
 
 const MainForm = ({navigation}, props) => {
     return (
@@ -23,12 +24,12 @@ const MainForm = ({navigation}, props) => {
                     source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
                     style={ styles.imagen }
                 />
-                <Button title="Qr" onPress={() => navigation.navigate('Qr')}/>
+                <Button title="QR" onPress={() => navigation.navigate('QR')}/>
                 <Text style={styles.letras}>Codigo :{props.Codigo}</Text>
                 <Input></Input>
-                <Text style={styles.letras}>Ubicación</Text>
+                <Text style={styles.letras}>Ubicación :</Text>
                 <Input></Input>
-                <Text style={styles.letras}>Cantidad</Text>
+                <Text style={styles.letras}>Cantidad :</Text>
                 <Input></Input>
                 <Button style={styles.boton} title= "Enviar"/>
                 
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
         bottom:0,
         left:0,
         right:0,
+        marginBottom: 50,
         //borderWidth:3,
         //borderColor: 'red',
         },
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
     },
     boton:{
         width: 50, 
-        height: 50
+        height: 50,
     },
     subcontainer:{
         alignItems: "center",
@@ -88,5 +90,19 @@ const styles = StyleSheet.create({
     },
 
 });
+
+const scalingFactors = {
+    max: 15,
+    big: 20,
+    small: 30,
+    normal: 25,
+    moneyTitle: 10,
+    };
+    
+    // scaling font size
+    export const fontSmall = width / scalingFactors.small;
+    export const fontNormal = width / scalingFactors.normal;
+    export const fontBig = width / scalingFactors.big;
+    export const fontMax = width / scalingFactors.max;
 
 export default withNavigation(MainForm);
