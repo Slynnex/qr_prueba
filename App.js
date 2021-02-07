@@ -14,6 +14,7 @@ import QrScreen from './src/screens/Qr_screen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/screens/navigationRef';
 
+
 const switchNavigator = createSwitchNavigator({
     loginFlow: createStackNavigator({
       Signin: SigninScreen,
@@ -29,6 +30,7 @@ const switchNavigator = createSwitchNavigator({
       Main: MainScreen,
       List: ListScreen,
       Calculator: CalculatorScreen
+      
     })
 
 });
