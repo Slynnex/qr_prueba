@@ -1,8 +1,9 @@
 import React from 'react';
-import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView } from 'react-native';
+import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions } from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
+const {width} = Dimensions.get('window');
 
 const MainForm = (props) => {
     return (
@@ -16,7 +17,6 @@ const MainForm = (props) => {
                         <Text style={styles.letras}>Nombre</Text>
                         <Text style={styles.letras}>Fecha</Text>
                 </View>
-
                 
 
                <View style={styles.subcontainer}>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         bottom:0,
         left:0,
         right:0,
-        
+        marginBottom: 50,
         //borderWidth:3,
         //borderColor: 'red',
         },
@@ -96,5 +96,19 @@ const styles = StyleSheet.create({
     },
 
 });
+
+const scalingFactors = {
+    max: 15,
+    big: 20,
+    small: 30,
+    normal: 25,
+    moneyTitle: 10,
+    };
+    
+    // scaling font size
+    export const fontSmall = width / scalingFactors.small;
+    export const fontNormal = width / scalingFactors.normal;
+    export const fontBig = width / scalingFactors.big;
+    export const fontMax = width / scalingFactors.max;
 
 export default withNavigation(MainForm);
