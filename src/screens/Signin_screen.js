@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, StyleSheet, Text, Button} from 'react-native';
 import AuthForm from '../components/AuthForm';
 import {NavigationEvents} from 'react-navigation';
 import NavLink from '../components/NavLink';
+import { Context as AuthContext } from '../context/AuthContext';
 
 const Signin_screen = ({ navigation }) => {
+    const {state, signin} = useContext(AuthContext);
     return (
         <View style={styles.container}>
             <AuthForm 
                 headerText="Iniciar sesión"
-                errorMessage="Datos incorrectos"
+                errorMessage={state.errorMessage}
                 regbool = {false}
                 subtmitButtonText="Iniciar sesion"
+                onSubmit={signin}
             />
             <NavLink
                 text="No tienes cuenta? Registrese"
