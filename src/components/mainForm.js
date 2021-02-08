@@ -11,7 +11,7 @@ const MainForm = (props) => {
         <SafeAreaView style={styles.container}>
          <ScrollView >
 
-                <Text style={styles.titulo}>No Registro</Text>
+                <Text style={styles.titulo}>{props.Nombre}</Text>
                 
                 <View style={styles.datos}>                      
                         <Text style={styles.letras}>Nombre</Text>
@@ -25,7 +25,7 @@ const MainForm = (props) => {
                         style={ styles.imagen }
                     />
                     
-                    <Text style={styles.letras}>Codigo :{props.Codigo}</Text>
+                    <Text style={styles.letras}>Codigo: {props.Codigo}</Text>
                     <Input></Input>
                     <Text style={styles.letras}>Ubicación</Text>
                     <Input></Input>
