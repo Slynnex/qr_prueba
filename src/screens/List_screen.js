@@ -5,11 +5,19 @@ import {Context} from '../context/AuthContext';
 
 const List_screen = () => {
     const {state, lista} = useContext(Context);
+    const [refreshing, setRefreshing] = React.useState(false);
 
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        lista();
+        setTimeout(() => setRefreshing(false),1500);
+      }, []);
 
-     useEffect(() => {
+    useEffect(() => {
          lista();
     },[]);
+
+    
 
 
     return (
@@ -28,6 +36,9 @@ const List_screen = () => {
                     </View>
                 );
             }}
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            
             />
         </View>
     );
