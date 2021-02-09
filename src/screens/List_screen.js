@@ -26,7 +26,7 @@ const List_screen = ({navigation}) => {
                         codeList: item.Codigo,
                         statusList: item.Status,
                         locationList: item.Ubicacion,
-                        cantList: item.Cantidad
+                        cantList: item.Cantidad 
                     }
                     )}>
                     <View style={styles.producto}>
