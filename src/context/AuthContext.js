@@ -9,6 +9,8 @@ const authReducer = (state, action) =>{
             return {...state, errorMessage: action.payload};
         case 'signin':
             return { errorMessage: '', token: action.payload};
+        case 'get_list':
+            return action.payload;
     }
 };
 
@@ -45,7 +47,18 @@ const signin = dispatch => async ({email, password}) => {
     }
 }
 
+const lista = dispatch => {
+    return async() => {
+    try{
+    const response = await BDApi.get('/api/productos');
+    dispatch({type: 'get_list', payload: response.data})}
+    catch(err){
+        console.log(err);
+    }
+    };
+}
+
 
 export const { Provider, Context} = createDataContext(
-    authReducer, { signup, signin },{ token: null, errorMessage: ''}
+    authReducer, { signup, signin, lista },{ token: null, errorMessage: '', listado: []}
 );
