@@ -5,7 +5,7 @@ import MainForm from '../components/mainForm';
 const Main_screen = ({navigation}) => {
     return (
         <View>
-            <MainForm Codigo={navigation.getParam('Codigo')}/>
+            <MainForm Codigo={navigation.getParam('Codigo')} Nombre={navigation.getParam('Nombre')} Status={navigation.getParam('Status')}/>
         </View>
     );
 }

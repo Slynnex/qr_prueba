@@ -5,36 +5,42 @@ import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
 const {width} = Dimensions.get('window');
 
-const MainForm = ({navigation}, props) => {
+const MainForm = (props) => {
     return (
         
         <SafeAreaView style={styles.container}>
          <ScrollView >
 
-         
-            
-                <Text style={styles.titulo}>No Registro</Text>
+                <Text style={styles.titulo}>{props.Nombre}</Text>
                 
-                <View style={styles.datos}>
-                    <Text style={styles.letras}>Nombre</Text>
-                    <Text style={styles.letras}>Fecha</Text>
+                <View style={styles.datos}>                      
+                        <Text style={styles.letras}>Nombre</Text>
+                        <Text style={styles.letras}>Fecha</Text>
                 </View>
-               <View style={styles.subcontainer}>
-               <Image 
-                    source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
-                    style={ styles.imagen }
-                />
-                <Button title="QR" onPress={() => navigation.navigate('QR')}/>
-                <Text style={styles.letras}>Codigo :{props.Codigo}</Text>
-                <Input></Input>
-                <Text style={styles.letras}>Ubicación :</Text>
-                <Input></Input>
-                <Text style={styles.letras}>Cantidad :</Text>
-                <Input></Input>
-                <Button style={styles.boton} title= "Enviar"/>
                 
+
+               <View style={styles.subcontainer}>
+                    <Image 
+                        source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
+                        style={ styles.imagen }
+                    />
+                    
+                    <Text style={styles.letras}>Codigo: {props.Codigo}</Text>
+                    <Input></Input>
+                    <Text style={styles.letras}>Ubicación</Text>
+                    <Input></Input>
+                    <Text style={styles.letras}>Cantidad</Text>
+                    <Input></Input>
+                    
+                   
                 
                </View>
+
+               <View style={styles.datos}>
+                    <Button title="Qr" onPress={() => props.navigation.navigate('Qr')}/>
+                    <Button style={styles.boton} title= "Enviar"/>
+                </View>
+
                
         </ScrollView>    
         </SafeAreaView>
@@ -46,8 +52,9 @@ const styles = StyleSheet.create({
 
     container: {
         
-        marginVertical: 10,
-        marginHorizontal: 10,
+        
+        marginHorizontal: 20,
+        marginBottom:60,
         top:10,
         bottom:0,
         left:0,
@@ -75,8 +82,7 @@ const styles = StyleSheet.create({
     marginBottom:10,
     },
     boton:{
-        width: 50, 
-        height: 50,
+       
     },
     subcontainer:{
         alignItems: "center",
