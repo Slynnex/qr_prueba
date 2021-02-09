@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Context} from '../context/AuthContext';
+import Spacer from '../components/Spacer';
 
 const List_screen = () => {
     const {state, lista} = useContext(Context);
@@ -14,19 +15,27 @@ const List_screen = () => {
 
     return (
         <View style={styles.container}>
-            <Text h3>Lista de productos</Text>
+            <Text style={styles.titulo}>Lista de productos</Text>
+            <Spacer></Spacer>
             <FlatList
             data={state}
             keyExtractor={(blogPost) =>blogPost.Codigo}
             renderItem={({item}) =>{
                 return(
-                    <View style={styles.producto}>
-                    <Text>Nombre: {item.Nombre}</Text>
-                    <Text>Cantidad: {item.Cantidad}</Text>
-                    <Text>Estatus: {item.Status}</Text>
-                    <Text>Ubicación: {item.Ubicacion}</Text>
-                    </View>
-                );
+                    <View style={styles.producto2}>
+                        <View style={styles.producto}>
+                            <Text>Nombre: {item.Nombre}</Text>
+                            <Text>Cantidad: {item.Cantidad}</Text>
+                        </View>
+
+                        <View style={styles.producto}>
+                            <Text>Estatus: {item.Status}</Text>
+                            <Text>Ubicación: {item.Ubicacion}</Text>   
+                        </View>
+
+                    </View>   
+                    );
+                    
             }}
             />
         </View>
@@ -35,15 +44,24 @@ const List_screen = () => {
 
 const styles = StyleSheet.create({
     container: {
-       marginVertical: 10,
+       marginVertical: 30,
        marginHorizontal: 10,
-       marginBottom: 300,
-       justifyContent: 'center',
+       marginBottom: 30,
+      
        flex:1
     },
     producto: {
+     
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+    },
+    producto2:{
         borderWidth: 1,
-        borderColor: 'gray'
+        borderColor: 'gray',
+    },
+    titulo:{
+        textAlign: 'center',
+        fontSize:30
     }
 });
 
