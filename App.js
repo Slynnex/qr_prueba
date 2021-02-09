@@ -13,6 +13,7 @@ import CalculatorScreen from './src/screens/calculator_screen';
 import QrScreen from './src/screens/Qr_screen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/screens/navigationRef';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const switchNavigator = createSwitchNavigator({
@@ -27,7 +28,16 @@ const switchNavigator = createSwitchNavigator({
       }
     }),
     mainFlow: createBottomTabNavigator({
-      Main: MainScreen,
+      Main: {
+        screen:MainScreen,
+        path: '/',
+        navigationOptions:{
+          tabBarIcon: ({ focused, tintColor }) => {
+            const iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+            return <Icon name={iconName} size={25} color={tintColor} />;
+          },
+        },
+      },
       List: ListScreen,
       Calculator: CalculatorScreen
       
