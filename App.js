@@ -33,13 +33,33 @@ const switchNavigator = createSwitchNavigator({
         path: '/',
         navigationOptions:{
           tabBarIcon: ({ focused, tintColor }) => {
-            const iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+            const iconName = `home${focused ? '' : '-outline'}`;
             return <Icon name={iconName} size={25} color={tintColor} />;
           },
         },
       },
-      List: ListScreen,
-      Calculator: CalculatorScreen
+      List: {
+        screen:ListScreen,
+        path: '/',
+        navigationOptions:{
+          tabBarIcon: ({ focused, tintColor }) => {
+            const iconName = `list${focused ? '' : '-outline'}`;
+            return <Icon name={iconName} size={25} color={tintColor} />;
+          },
+        },
+      },
+
+      Calculator:{
+        screen:CalculatorScreen,
+        path: '/',
+        navigationOptions:{
+          tabBarIcon: ({ focused, tintColor }) => {
+            const iconName = `calculator${focused ? '' : '-outline'}`;
+            return <Icon name={iconName} size={25} color={tintColor} />;
+          },
+        },
+      },
+     
       
     })
 
