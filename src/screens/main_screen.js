@@ -1,11 +1,18 @@
-import React from 'react';
+import React,{ useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import MainForm from '../components/mainForm';
 
+
 const Main_screen = ({navigation}) => {
+    const [codigo, setCodigo] = useState('');
+    
+
+
     return (
         <View>
-            <MainForm Codigo={navigation.getParam('Codigo')} Nombre={navigation.getParam('Nombre')} Status={navigation.getParam('Status')}/>
+            <MainForm Codigo={navigation.getParam('codeList')} Nombre={navigation.getParam('nameList')} Status={navigation.getParam('Status')
+
+        }/>
         </View>
     );
 }

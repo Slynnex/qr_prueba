@@ -1,9 +1,9 @@
 import React, {useContext, useEffect} from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Context} from '../context/AuthContext';
 
-const List_screen = () => {
+const List_screen = ({navigation}) => {
     const {state, lista} = useContext(Context);
 
 
@@ -20,12 +20,22 @@ const List_screen = () => {
             keyExtractor={(blogPost) =>blogPost.Codigo}
             renderItem={({item}) =>{
                 return(
+                    <TouchableOpacity onPress={() => navigation.navigate('Main', 
+                    {
+                        nameList: item.Nombre,
+                        codeList: item.Codigo,
+                        statusList: item.Status,
+                        locationList: item.Ubicacion,
+                        cantList: item.Cantidad
+                    }
+                    )}>
                     <View style={styles.producto}>
                     <Text>Nombre: {item.Nombre}</Text>
                     <Text>Cantidad: {item.Cantidad}</Text>
                     <Text>Estatus: {item.Status}</Text>
                     <Text>Ubicación: {item.Ubicacion}</Text>
                     </View>
+                    </TouchableOpacity>
                 );
             }}
             />

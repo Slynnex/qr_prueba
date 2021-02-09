@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions } from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
@@ -6,6 +6,7 @@ import { withNavigation } from 'react-navigation';
 const {width} = Dimensions.get('window');
 
 const MainForm = (props) => {
+    
     return (
         
         <SafeAreaView style={styles.container}>
