@@ -32,8 +32,8 @@ const MainForm = (props) => {
                         style={ styles.imagen }
                     />
                     
-                    <Text style={styles.letras}>Codigo: {props.Codigo}</Text>
-                    <Input></Input>
+                    <Text style={styles.letras}>Codigo:</Text>
+                    <Input value= {props.Codigo}></Input>
                     <Text style={styles.letras}>Ubicación</Text>
                     <Input 
                         value={Ubicacion.toString()}
