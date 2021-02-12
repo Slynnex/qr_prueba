@@ -11,6 +11,11 @@ const MainForm = (props) => {
     const [Cantidad, setCantidad] = useState(props.Cantidad);
     const [codigo, setCondigo] = useState(props.Codigo);
     const {state, actualizar} = useContext(AuthContext);
+    if(props.Cantidad){
+        var cantidad = props.Cantidad.toString();
+    }else{
+        cantidad = '0';
+    }
 
 
     return (
@@ -41,7 +46,7 @@ const MainForm = (props) => {
                     />
                     <Text style={styles.letras}>Cantidad</Text>
                     <Input
-                        defaultValue={props.Cantidad.toString()}
+                        defaultValue={cantidad}
                         onChangeText={setCantidad}
                     />
                     
