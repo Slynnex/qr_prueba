@@ -46,28 +46,39 @@ const List_screen = ({navigation}) => {
                     )}>
                     
                    
+                   
+
+                    {item.Status === "No registrado" ?
                     <View style={styles.producto}>
 
                         
                         <View>
                             <Text style={styles.nombre}>Nombre: {item.Nombre}</Text>
                             <Text style={styles.datos}>Cantidad: {item.Cantidad}</Text>
-                            <Text style={styles.datos}>Ubicación: {item.Ubicacion}</Text>
-
-                            
+                            <Text style={styles.datos}>Ubicación: {item.Ubicacion}</Text>   
                         </View>
 
-                        <View style={styles.image}>
-                     
-                            
-                            {item.Status === "No registrado" 
-                            ? <Icon name={name}  size={40} color='red'></Icon>
-                                
-                            :  <Icon name={name1}  size={40} color='green'></Icon>
-                            }  
+                        <View >  
+                            <Icon name={name}  size={40} color='red'></Icon>      
                         </View>
-
                     </View>
+
+                    :
+                    
+                    <View style={styles.producto2}>
+
+                        
+                        <View>
+                            <Text style={styles.nombre}>Nombre: {item.Nombre}</Text>
+                            <Text style={styles.datos}>Cantidad: {item.Cantidad}</Text>
+                            <Text style={styles.datos}>Ubicación: {item.Ubicacion}</Text>
+                        </View>
+
+                        <View >
+                            <Icon name={name1}  size={40} color='green'></Icon>
+                        </View>
+                    </View>
+                    }
 
                     </TouchableOpacity>
                 );
@@ -83,21 +94,25 @@ const List_screen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
        marginVertical: 40,
-       marginHorizontal: 10,
+       marginHorizontal: 20,
        marginBottom: 10,
        justifyContent: 'center',
-       flex:1
-    },
-    producto: {
-
+       flex:1,
+       
+    },    
+     producto: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        borderWidth: 1,
-        borderColor: 'gray'
+        backgroundColor:'rgb(249,235,235)'
+        
+        //borderWidth: 1,
+        //borderColor: 'gray'
     },
     producto2:{
-        borderWidth: 1,
-        borderColor: 'gray'
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        backgroundColor:'rgb(235,249,238)'
+        
         
     },
     nombre:{
