@@ -7,10 +7,15 @@ const {width} = Dimensions.get('window');
 import { Context as AuthContext } from '../context/AuthContext';
 
 const MainForm = (props) => {
-    const [Ubicacion, setUbicacion] = useState('');
-    const [Cantidad, setCantidad] = useState(0);
+    const [Ubicacion, setUbicacion] = useState(props.Ubicacion);
+    const [Cantidad, setCantidad] = useState(props.Cantidad);
     const [codigo, setCondigo] = useState(props.Codigo);
     const {state, actualizar} = useContext(AuthContext);
+    if(props.Cantidad){
+        var cantidad = props.Cantidad.toString();
+    }else{
+        cantidad = '0';
+    }
 
 
     return (
@@ -36,13 +41,13 @@ const MainForm = (props) => {
                     <Input value= {props.Codigo}></Input>
                     <Text style={styles.letras}>Ubicación</Text>
                     <Input 
-                        value={Ubicacion.toString()}
+                        defaultValue={props.Ubicacion}
                         onChangeText={setUbicacion}
                     />
                     <Text style={styles.letras}>Cantidad</Text>
                     <Input
-                         value={Cantidad.toString()}
-                         onChangeText={setCantidad}
+                        defaultValue={cantidad}
+                        onChangeText={setCantidad}
                     />
                     
                    
@@ -50,7 +55,7 @@ const MainForm = (props) => {
                </View>
 
                <View style={styles.datos}>
-                    <Button title="Qr" onPress={() => props.navigation.navigate('Qr')}/>
+               <Button title="Qr" onPress={() => props.navigation.navigate('Qr',{Nombre: props.Nombre, Codigo: props.Codigo, Status: props.Status, Ubicacion: Ubicacion, Cantidad: Cantidad})}/>
                     <Button 
                         style={styles.boton} title= "Enviar"
                         onPress={() => actualizar({Ubicacion,Cantidad, codigo: props.Codigo})}
