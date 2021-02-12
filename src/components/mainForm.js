@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions } from 'react-native';
+import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions} from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
@@ -11,6 +11,9 @@ const MainForm = (props) => {
     const [Cantidad, setCantidad] = useState(props.Cantidad);
     const [codigo, setCondigo] = useState(props.Codigo);
     const {state, actualizar} = useContext(AuthContext);
+
+    
+
     if(props.Cantidad){
         var cantidad = props.Cantidad.toString();
     }else{

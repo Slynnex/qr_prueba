@@ -1,4 +1,4 @@
-import {AsyncStorage} from 'react-native';
+import {AsyncStorage, Alert} from 'react-native';
 import createDataContext from './createDataContext';
 import BDApi from '../api/BD';
 import { navigate } from '../screens/navigationRef';
@@ -64,6 +64,7 @@ const actualizar = dispatch => async({Ubicacion, Cantidad, codigo})=> {
         try{
             const response = await BDApi.put(`/api/productos/${codigo}`,{Ubicacion,Cantidad})
             dispatch({type: 'update'})
+            Alert.alert("se guardo");
         }catch(err){
             console.log(err.response);
             dispatch({
