@@ -3,6 +3,7 @@ import {View, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-elements';
 import {Context} from '../context/AuthContext';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { color } from 'react-native-reanimated';
 
 
 const List_screen = ({navigation}) => {
@@ -43,22 +44,26 @@ const List_screen = ({navigation}) => {
                         cantList: item.Cantidad 
                     }
                     )}>
+                    
+                   
                     <View style={styles.producto}>
+
+                        
                         <View>
-                            <Text>Nombre: {item.Nombre}</Text>
-                            <Text>Cantidad: {item.Cantidad}</Text>
-                            <Text>Ubicación: {item.Ubicacion}</Text>
+                            <Text style={styles.nombre}>Nombre: {item.Nombre}</Text>
+                            <Text style={styles.datos}>Cantidad: {item.Cantidad}</Text>
+                            <Text style={styles.datos}>Ubicación: {item.Ubicacion}</Text>
 
                             
                         </View>
 
-                        <View>
+                        <View style={styles.image}>
                      
                             
                             {item.Status === "No registrado" 
-                            ? <Icon name={name} style={styles.image} size={35} color='red'>  </Icon>
+                            ? <Icon name={name}  size={40} color='red'></Icon>
                                 
-                            :  <Icon name={name1} style={styles.image} size={35} color='green'></Icon>
+                            :  <Icon name={name1}  size={40} color='green'></Icon>
                             }  
                         </View>
 
@@ -95,16 +100,23 @@ const styles = StyleSheet.create({
         borderColor: 'gray'
         
     },
+    nombre:{
+        fontSize:20
+    },
+    datos:{
+        fontSize:13,
+        color: 'gray'
+    },
     titulo:{
         textAlign: 'center',
         fontSize:30
     },
     image:{
-        height:40,
-        width:40,
+        //height:50,
+        //width:50,
         //borderWidth:1,
         //borderColor: 'red',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         
     }
 });
