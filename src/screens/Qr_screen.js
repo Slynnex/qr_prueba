@@ -14,6 +14,8 @@ export default class Qr extends React.Component {
       Codigo: this.props.navigation.getParam('Codigo'),
       Nombre: this.props.navigation.getParam('Nombre'),
       Status: this.props.navigation.getParam('Status'),
+      Ubicacion: this.props.navigation.getParam('Ubicacion'),
+      Cantidad : this.props.navigation.getParam('Cantidad'),
     };
 
     autenticar=(codigo)=>{
@@ -75,7 +77,7 @@ export default class Qr extends React.Component {
         style={styles.qr} 
         source={require('../../assets/qr.png')}/>
         <Text style={styles.cancel}
-        onPress={()=>this.props.navigation.navigate('Main',{codeList: this.state.Codigo, nameList:this.state.Nombre, Status: this.state.Status})}>Cancelar</Text>
+        onPress={()=>this.props.navigation.navigate('Main',{codeList: this.state.Codigo, nameList:this.state.Nombre, Status: this.state.Status, Ubicacion: this.state.Ubicacion, Cantidad: this.state.Cantidad})}>Cancelar</Text>
         {scanned && (<Button title = {'Escanear otra vez'}
             onPress = {() => this.setState({scanned: false})}/>)
         }
