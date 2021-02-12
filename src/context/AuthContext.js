@@ -11,6 +11,8 @@ const authReducer = (state, action) =>{
             return { errorMessage: '', token: action.payload};
         case 'get_list':
             return action.payload;
+        case 'update':
+            return {errorMessage: ''};
     }
 };
 
@@ -58,7 +60,19 @@ const lista = dispatch => {
     };
 }
 
+const actualizar = dispatch => async({Ubicacion, Cantidad, codigo})=> {
+        try{
+            const response = await BDApi.put(`/api/productos/${codigo}`,{Ubicacion,Cantidad})
+            dispatch({type: 'update'})
+        }catch(err){
+            console.log(err.response);
+            dispatch({
+                type: 'add_error',
+                payload: 'Revise que haya llenado todo'
+            });
+        }
+}
 
 export const { Provider, Context} = createDataContext(
-    authReducer, { signup, signin, lista },{ token: null, errorMessage: '', listado: []}
+    authReducer, { signup, signin, lista, actualizar },{ token: null, errorMessage: '', listado: []}
 );

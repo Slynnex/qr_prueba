@@ -1,12 +1,18 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions } from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
 const {width} = Dimensions.get('window');
+import { Context as AuthContext } from '../context/AuthContext';
 
 const MainForm = (props) => {
-    
+    const [Ubicacion, setUbicacion] = useState('');
+    const [Cantidad, setCantidad] = useState(0);
+    const [codigo, setCondigo] = useState(props.Codigo);
+    const {state, actualizar} = useContext(AuthContext);
+
+
     return (
         
         <SafeAreaView style={styles.container}>
@@ -29,9 +35,15 @@ const MainForm = (props) => {
                     <Text style={styles.letras}>Codigo: {props.Codigo}</Text>
                     <Input></Input>
                     <Text style={styles.letras}>Ubicación</Text>
-                    <Input></Input>
+                    <Input 
+                        value={Ubicacion.toString()}
+                        onChangeText={setUbicacion}
+                    />
                     <Text style={styles.letras}>Cantidad</Text>
-                    <Input></Input>
+                    <Input
+                         value={Cantidad.toString()}
+                         onChangeText={setCantidad}
+                    />
                     
                    
                 
@@ -39,7 +51,10 @@ const MainForm = (props) => {
 
                <View style={styles.datos}>
                     <Button title="Qr" onPress={() => props.navigation.navigate('Qr')}/>
-                    <Button style={styles.boton} title= "Enviar"/>
+                    <Button 
+                        style={styles.boton} title= "Enviar"
+                        onPress={() => actualizar({Ubicacion,Cantidad, codigo: props.Codigo})}
+                    />
                 </View>
 
                
