@@ -103,16 +103,16 @@ const styles = StyleSheet.create({
      producto: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        backgroundColor:'rgb(249,235,235)'
-        
+        backgroundColor:'rgb(249,235,235)',
+        marginBottom: 10
         //borderWidth: 1,
         //borderColor: 'gray'
     },
     producto2:{
         justifyContent: 'space-between',
         flexDirection: 'row',
-        backgroundColor:'rgb(235,249,238)'
-        
+        backgroundColor:'rgb(235,249,238)',
+        marginBottom: 10
         
     },
     nombre:{
