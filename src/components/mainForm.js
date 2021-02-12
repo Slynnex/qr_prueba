@@ -38,7 +38,7 @@ const MainForm = (props) => {
                </View>
 
                <View style={styles.datos}>
-                    <Button title="Qr" onPress={() => props.navigation.navigate('Qr')}/>
+                    <Button title="Qr" onPress={() => props.navigation.navigate('Qr',{Nombre: props.Nombre, Codigo: props.Codigo, Status: props.Status})}/>
                     <Button style={styles.boton} title= "Enviar"/>
                 </View>
 

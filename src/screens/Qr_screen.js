@@ -11,6 +11,9 @@ export default class Qr extends React.Component {
     state = {
       hasCameraPermission: null,
       scanned: false,
+      Codigo: this.props.navigation.getParam('Codigo'),
+      Nombre: this.props.navigation.getParam('Nombre'),
+      Status: this.props.navigation.getParam('Status'),
     };
 
     autenticar=(codigo)=>{
@@ -22,7 +25,7 @@ export default class Qr extends React.Component {
               }).then((response) => response.json()).then((responseJson) =>
               {
                   if(!responseJson.msg){
-                      this.props.navigation.navigate('Main',{Codigo: responseJson.Codigo, Nombre:responseJson.Nombre, Cantidad:responseJson.Cantidad, Fecha: responseJson.Fecha, Ubicacion: responseJson.Ubicacion, Conteo: responseJson.Conteo, Status: responseJson.Status})
+                      this.props.navigation.navigate('Main',{codeList: responseJson.Codigo, nameList:responseJson.Nombre, Cantidad:responseJson.Cantidad, Fecha: responseJson.Fecha, Ubicacion: responseJson.Ubicacion, Conteo: responseJson.Conteo, Status: responseJson.Status})
                       //Alert.alert(codigo,responseJson.Descripcion +"\n"+ responseJson.Cantidad);
                   }else{
                       Alert.alert(codigo,responseJson.msg);
@@ -72,7 +75,7 @@ export default class Qr extends React.Component {
         style={styles.qr} 
         source={require('../../assets/qr.png')}/>
         <Text style={styles.cancel}
-        onPress={()=>this.props.navigation.pop()}>Cancelar</Text>
+        onPress={()=>this.props.navigation.navigate('Main',{codeList: this.state.Codigo, nameList:this.state.Nombre, Status: this.state.Status})}>Cancelar</Text>
         {scanned && (<Button title = {'Escanear otra vez'}
             onPress = {() => this.setState({scanned: false})}/>)
         }
