@@ -5,7 +5,6 @@ import {NavigationEvents} from 'react-navigation';
 import NavLink from '../components/NavLink';
 import { Context as AuthContext } from '../context/AuthContext';
 import bgimg from '../img/cococabra.jpg';
-import logo from '../img/logimg.png';
 
 const Signin_screen = ({ navigation }) => {
     const {state, signin} = useContext(AuthContext);
