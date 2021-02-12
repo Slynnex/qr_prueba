@@ -36,13 +36,13 @@ const MainForm = (props) => {
                     <Input value= {props.Codigo}></Input>
                     <Text style={styles.letras}>Ubicación</Text>
                     <Input 
-                        value={Ubicacion}
+                        defaultValue={props.Ubicacion}
                         onChangeText={setUbicacion}
                     />
                     <Text style={styles.letras}>Cantidad</Text>
                     <Input
-                         value={Cantidad.toString()}
-                         onChangeText={setCantidad}
+                        defaultValue={props.Cantidad.toString()}
+                        onChangeText={setCantidad}
                     />
                     
                    
