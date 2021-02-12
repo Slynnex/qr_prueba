@@ -36,7 +36,7 @@ const MainForm = (props) => {
 
                <View style={styles.subcontainer}>
                     <Image 
-                        source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
+                        source={{ uri: props.Imagen }}
                         style={ styles.imagen }
                     />
                     

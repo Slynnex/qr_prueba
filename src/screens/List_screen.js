@@ -41,7 +41,8 @@ const List_screen = ({navigation}) => {
                         codeList: item.Codigo,
                         Status: item.Status,
                         Ubicacion: item.Ubicacion,
-                        Cantidad: item.Cantidad 
+                        Cantidad: item.Cantidad,
+                        Imagen: item.Imagen
                     }
                     )}>
                     

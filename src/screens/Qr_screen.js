@@ -27,7 +27,7 @@ export default class Qr extends React.Component {
               }).then((response) => response.json()).then((responseJson) =>
               {
                   if(!responseJson.msg){
-                      this.props.navigation.navigate('Main',{codeList: responseJson.Codigo, nameList:responseJson.Nombre, Cantidad:responseJson.Cantidad, Fecha: responseJson.Fecha, Ubicacion: responseJson.Ubicacion, Conteo: responseJson.Conteo, Status: responseJson.Status})
+                      this.props.navigation.navigate('Main',{codeList: responseJson.Codigo, nameList:responseJson.Nombre, Cantidad:responseJson.Cantidad, Fecha: responseJson.Fecha, Ubicacion: responseJson.Ubicacion, Conteo: responseJson.Conteo, Status: responseJson.Status, Imagen: responseJson.Imagen})
                       //Alert.alert(codigo,responseJson.Descripcion +"\n"+ responseJson.Cantidad);
                   }else{
                       Alert.alert(codigo,responseJson.msg);
