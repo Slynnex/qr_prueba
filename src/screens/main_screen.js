@@ -10,7 +10,7 @@ const Main_screen = ({navigation}) => {
 
     return (
         <View>
-            <MainForm Codigo={navigation.getParam('codeList')} Nombre={navigation.getParam('nameList')} Status={navigation.getParam('Status')} Ubicacion={navigation.getParam('Ubicacion')} Cantidad={navigation.getParam('Cantidad')}/>
+            <MainForm Codigo={navigation.getParam('codeList')} Nombre={navigation.getParam('nameList')} Status={navigation.getParam('Status')} Ubicacion={navigation.getParam('Ubicacion')} Cantidad={navigation.getParam('Cantidad')} Imagen ={navigation.getParam('Imagen')}/>
         </View>
     );
 }

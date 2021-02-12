@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions } from 'react-native';
+import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions} from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
 import { withNavigation } from 'react-navigation';
@@ -11,6 +11,9 @@ const MainForm = (props) => {
     const [Cantidad, setCantidad] = useState(props.Cantidad);
     const [codigo, setCondigo] = useState(props.Codigo);
     const {state, actualizar} = useContext(AuthContext);
+
+    
+
     if(props.Cantidad){
         var cantidad = props.Cantidad.toString();
     }else{
@@ -33,7 +36,7 @@ const MainForm = (props) => {
 
                <View style={styles.subcontainer}>
                     <Image 
-                        source={{ uri: 'https://assets.geekmi.news/__export/1607114141528/sites/debate/img/2020/12/04/como-desbloquear-en-genshin-impact-la-mision-de-la-historia-de-mona_crop1607114115975.jpg_988992781.jpg' }}
+                        source={{ uri: props.Imagen }}
                         style={ styles.imagen }
                     />
                     
