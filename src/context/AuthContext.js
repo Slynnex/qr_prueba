@@ -64,7 +64,7 @@ const actualizar = dispatch => async({Ubicacion, Cantidad, codigo})=> {
         try{
             const response = await BDApi.put(`/api/productos/${codigo}`,{Ubicacion,Cantidad})
             dispatch({type: 'update'})
-            Alert.alert("se guardo");
+            //Alert.alert("se guardo");
         }catch(err){
             console.log(err.response);
             dispatch({
