@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {View ,StyleSheet, Image, Button, SafeAreaView, ScrollView, Dimensions} from 'react-native';
 import {Text, Input} from 'react-native-elements';
 import Spacer from './Spacer';
@@ -7,11 +7,20 @@ const {width} = Dimensions.get('window');
 import { Context as AuthContext } from '../context/AuthContext';
 
 const MainForm = (props) => {
-    const [Ubicacion, setUbicacion] = useState(props.Ubicacion);
-    const [Cantidad, setCantidad] = useState(props.Cantidad);
+
+//
+
+    const [Ubicacion, setUbicacion] = useState("");
+    const [Cantidad, setCantidad] = useState(0);
     const [codigo, setCondigo] = useState(props.Codigo);
     const {state, actualizar} = useContext(AuthContext);
-
+    
+    //sirve para detectar si hay nuevos datos solo 1 vez
+    //se llama solo 1 vez, asigna la ubicación y la cantidad pero si los valores son modificados se llama 1 vez a la funcion (lo que esta entre'[]')
+    useEffect(() => {
+        setUbicacion(props.Ubicacion);
+       setCantidad(props.Cantidad);
+    }, [props.Ubicacion, props.Cantidad])
     
 
     if(props.Cantidad){
@@ -49,7 +58,7 @@ const MainForm = (props) => {
                     />
                     <Text style={styles.letras}>Cantidad</Text>
                     <Input
-                        defaultValue={Cantidad}
+                        defaultValue={cantidad}
                         onChangeText={setCantidad}
                     />
                     
