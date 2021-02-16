@@ -9,7 +9,21 @@ const AuthForm = ({ headerText, errorMessage, regbool, subtmitButtonText, onSubm
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
+    const [valido, setValido] = useState(false);
 
+    const verificar = () => {
+        if(regbool){
+            if(password === confirmPass){
+            onSubmit({nombre, email, password});
+            return;
+            }
+            else{
+                setValido(true);
+                return;
+            }
+        }
+        onSubmit({nombre,email,password});
+    }
 
     return (
         <>
@@ -75,10 +89,14 @@ const AuthForm = ({ headerText, errorMessage, regbool, subtmitButtonText, onSubm
                 ? <Text>{errorMessage}</Text>
                 :null
             }
+            {valido
+                ? <Text> Las contraseñas no son iguales</Text>
+                :null
+            }
             <Spacer>
                 <Button 
                     title={subtmitButtonText}
-                    onPress={() => onSubmit({nombre, email, password})}
+                    onPress={() => verificar()}
                 />
             </Spacer>
         </>
